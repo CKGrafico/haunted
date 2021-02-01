@@ -99,10 +99,6 @@ function makeComponent(render: RenderFunction): Creator {
     }
 
     const proto = new Proxy(BaseElement.prototype, {
-      getPrototypeOf(target) {
-        return target;
-      },
-
       set(target, key: string, value, receiver): boolean {
         let desc: PropertyDescriptor | undefined;
         if(key in target) {
